@@ -23,13 +23,13 @@ spec:
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
-              value: example.com/nfs
+              value: k8s.io/nfs
             - name: NFS_SERVER
-              value: <<NFS Server IP>>
+              value: nfs-server.k8s
             - name: NFS_PATH
-              value: /srv/nfs/kubedata
+              value: /mnt/nfs_share
       volumes:
         - name: nfs-client-root
           nfs:
-            server: <<NFS Server IP>>
-            path: /srv/nfs/kubedata
+            server: nfs-server.k8s
+            path: /mnt/nfs_share
